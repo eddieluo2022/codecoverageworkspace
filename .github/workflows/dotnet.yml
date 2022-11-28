@@ -28,3 +28,6 @@ jobs:
       working-directory: ${{env.working-directory}}    
     - run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
       working-directory: ${{env.working-directory}}  
+    - name: Codecov
+      uses: codecov/codecov-action@v3.1.1
+
