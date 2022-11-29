@@ -5,7 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "codacy" ]
   pull_request:
     branches: [ "main" ]
 
@@ -30,6 +30,7 @@ jobs:
     - name: Run tests and collect code coverage report
       run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
       working-directory: ${{env.working-directory}}  
-    - name: Upload code coverage to codecov
-      uses: codecov/codecov-action@v3.1.1
+    - name: Upload coverage report to Codacy Coverage Reporter
+      uses: codacy/codacy-coverage-reporter-action@v1.3.0
+
 
