@@ -17,8 +17,6 @@ jobs:
       working-directory: './Calculator'
     steps:
     - uses: actions/checkout@v3
-    - name: Upload code coverage to codecov
-      uses: codecov/codecov-action@v3.1.1
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
@@ -26,8 +24,12 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore Calculator.sln
       working-directory: ${{env.working-directory}}
-    - run: dotnet build --no-restore
+    - name: Build Calculator project
+      run: dotnet build --no-restore
       working-directory: ${{env.working-directory}}    
-    - run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
+    - name: Run tests and collect code coverage report
+      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage"
       working-directory: ${{env.working-directory}}  
+    - name: Upload code coverage to codecov
+      uses: codecov/codecov-action@v3.1.1
 
