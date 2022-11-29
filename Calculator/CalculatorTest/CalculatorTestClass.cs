@@ -31,7 +31,7 @@ namespace CalculatorTest
         public void TestDivide()
         {
             CalculatorClass c = new CalculatorClass();
-            //Assert.AreEqual(1, c.Divide(5, 5));
+            Assert.AreEqual(1, c.Divide(5, 5));
         }
     }
 }
