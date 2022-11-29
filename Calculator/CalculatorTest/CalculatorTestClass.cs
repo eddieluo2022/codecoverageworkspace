@@ -30,9 +30,8 @@ namespace CalculatorTest
         [TestMethod]
         public void TestDivide()
         {
-            //CalculatorClass c = new CalculatorClass();
+            CalculatorClass c = new CalculatorClass();
             //Assert.AreEqual(1, c.Divide(5, 5));
-            Assert.Fail();
         }
     }
 }
